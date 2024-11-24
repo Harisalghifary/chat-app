@@ -53,7 +53,7 @@ export default defineComponent({
 
     // Listen for messages from the server
     onMounted(() => {
-      userId.value = socket.id; // Assign current socket ID
+      userId.value = socket.id ?? ""; // Assign current socket ID
       socket.on("chat-message", (data: { message: string; sender: string }) => {
         messages.value.push(data); // Add the new message to the chat
       });
